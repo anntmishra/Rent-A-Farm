@@ -23,17 +23,39 @@ const Login: React.FC = () => {
     // Demo credentials
     const demoEmail = 'demo@example.com';
     const demoPassword = 'demo123';
+    
+    // Sample credentials
+    const sampleUsername = 'abhinavraghav';
+    const samplePassword = 'abhinav123';
 
     if (formData.email === demoEmail && formData.password === demoPassword) {
       // Demo user login successful - create mock user and token
       const mockUser = {
-        id: 'demo-user-id',
+        _id: 'demo-user-id',
         name: 'Demo User',
         email: demoEmail
       };
       
       // Store mock data in localStorage
       localStorage.setItem('token', 'demo-token-12345');
+      localStorage.setItem('user', JSON.stringify(mockUser));
+      
+      // Redirect to dashboard
+      navigate('/dashboard');
+      return;
+    }
+    
+    // Check for sample credentials
+    if (formData.email === sampleUsername && formData.password === samplePassword) {
+      // Sample user login successful - create mock user with same content as demo
+      const mockUser = {
+        _id: 'sample-user-id',
+        name: 'Abhinav Raghav',
+        email: sampleUsername
+      };
+      
+      // Store mock data in localStorage
+      localStorage.setItem('token', 'sample-token-67890');
       localStorage.setItem('user', JSON.stringify(mockUser));
       
       // Redirect to dashboard
@@ -64,7 +86,7 @@ const Login: React.FC = () => {
       // Redirect to dashboard
       navigate('/dashboard');
     } catch (err) {
-      setError('Login failed. Try the demo account: demo@example.com / demo123');
+      setError('Login failed. Try demo@example.com/demo123 or abhinavraghav/abhinav123');
     }
   };
 
@@ -73,6 +95,14 @@ const Login: React.FC = () => {
     setFormData({
       email: 'demo@example.com',
       password: 'demo123'
+    });
+  };
+  
+  // Pre-fill sample credentials
+  const fillSampleCredentials = () => {
+    setFormData({
+      email: 'abhinavraghav',
+      password: 'abhinav123'
     });
   };
 
@@ -102,15 +132,15 @@ const Login: React.FC = () => {
           <div className="rounded-md shadow-sm -space-y-px">
             <div>
               <label htmlFor="email" className="sr-only">
-                Email address
+                Email or Username
               </label>
               <input
                 id="email"
                 name="email"
-                type="email"
+                type="text"
                 required
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-green-500 focus:border-green-500 focus:z-10 sm:text-sm"
-                placeholder="Email address"
+                placeholder="Email or Username"
                 value={formData.email}
                 onChange={handleChange}
               />
@@ -132,11 +162,11 @@ const Login: React.FC = () => {
             </div>
           </div>
 
-          <div>
+          <div className="flex flex-col space-y-4">
             <button
               type="button"
               onClick={fillDemoCredentials}
-              className="group relative w-full flex justify-center py-3 px-4 border border-green-300 text-sm font-medium rounded-lg text-green-700 bg-green-50 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 mb-4 transition-all duration-200 shadow-sm"
+              className="group relative w-full flex justify-center py-3 px-4 border border-green-300 text-sm font-medium rounded-lg text-green-700 bg-green-50 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-200 shadow-sm"
             >
               <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                 <svg className="h-5 w-5 text-green-500 group-hover:text-green-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -145,6 +175,20 @@ const Login: React.FC = () => {
               </span>
               Use Demo Account
             </button>
+            
+            <button
+              type="button"
+              onClick={fillSampleCredentials}
+              className="group relative w-full flex justify-center py-3 px-4 border border-green-300 text-sm font-medium rounded-lg text-green-700 bg-green-50 hover:bg-green-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-200 shadow-sm"
+            >
+              <span className="absolute left-0 inset-y-0 flex items-center pl-3">
+                <svg className="h-5 w-5 text-green-500 group-hover:text-green-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" />
+                </svg>
+              </span>
+              Use Sample Account
+            </button>
+            
             <button
               type="submit"
               className="group relative w-full flex justify-center py-3 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500 transition-all duration-200 shadow-md"
@@ -163,4 +207,4 @@ const Login: React.FC = () => {
   );
 };
 
-export default Login; 
+export default Login;

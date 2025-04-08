@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import { Plus, Search, Filter, MapPin, Calendar, ChevronRight, User, LogOut, Settings, Bell, Heart } from 'lucide-react';
+import { Plus, Search, Filter, MapPin, Calendar, ChevronRight, User, LogOut, Settings, Bell, Heart, Home } from 'lucide-react';
 
 interface Listing {
   _id: string;
@@ -63,12 +63,12 @@ const Dashboard: React.FC = () => {
 
   const fetchListings = async () => {
     try {
-      // Check if user is demo account
+      // Check if user is demo or sample account
       const storedUser = localStorage.getItem('user');
       const user = storedUser ? JSON.parse(storedUser) : null;
       
-      if (user && user.email === 'demo@example.com') {
-        // Mock listings for demo account
+      if (user && (user.email === 'demo@example.com' || user.email === 'abhinavraghav')) {
+        // Mock listings for demo/sample accounts
         const mockListings: Listing[] = [
           {
             _id: 'demo1',
@@ -362,19 +362,19 @@ const Dashboard: React.FC = () => {
       
       // Then apply the active tab filter
       if (activeTab === 'my-listings') {
-        // For demo account, show empty list in "My Listings" tab
+        // For demo/sample account, show empty list in "My Listings" tab
         const storedUser = localStorage.getItem('user');
         const user = storedUser ? JSON.parse(storedUser) : null;
-        if (user && user.email === 'demo@example.com') {
-          return false; // Return empty list for demo account
+        if (user && (user.email === 'demo@example.com' || user.email === 'abhinavraghav')) {
+          return false; // Return empty list for demo/sample account
         }
         return matchesSearchAndType && listing.owner._id === user?._id;
       } else if (activeTab === 'favorites') {
-        // For demo account, show empty list in "Favorites" tab
+        // For demo/sample account, show empty list in "Favorites" tab
         const storedUser = localStorage.getItem('user');
         const user = storedUser ? JSON.parse(storedUser) : null;
-        if (user && user.email === 'demo@example.com') {
-          return false; // Return empty list for demo account
+        if (user && (user.email === 'demo@example.com' || user.email === 'abhinavraghav')) {
+          return false; // Return empty list for demo/sample account
         }
         // In a real app, this would check if the listing is in the user's favorites
         return matchesSearchAndType;
@@ -409,7 +409,8 @@ const Dashboard: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center">
-              <h1 className="text-2xl font-bold text-gray-900">FarmRental</h1>
+              <Home className="w-6 h-6 text-green-600 mr-2" />
+              <h1 className="text-2xl font-bold text-gray-900">Rent A Farm</h1>
               <div className="ml-10 flex space-x-8">
                 <button 
                   onClick={() => setActiveTab('browse')}

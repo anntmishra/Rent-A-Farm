@@ -23,13 +23,13 @@ const Register: React.FC = () => {
 
     // For demo purpose, always register successfully
     const mockUser = {
-      id: 'demo-user-id',
-      name: formData.name || 'Rajinder Singh',
-      email: formData.email || 'demo@example.com'
+      _id: 'new-user-id',
+      name: formData.name || 'New User',
+      email: formData.email || 'user@example.com'
     };
     
     // Store mock data in localStorage
-    localStorage.setItem('token', 'demo-token-12345');
+    localStorage.setItem('token', 'new-user-token-12345');
     localStorage.setItem('user', JSON.stringify(mockUser));
     
     // Redirect to dashboard
@@ -51,6 +51,9 @@ const Register: React.FC = () => {
             >
               sign in to your account
             </Link>
+          </p>
+          <p className="mt-2 text-center text-sm text-gray-500">
+            For quick access, use demo@example.com/demo123 or abhinavraghav/abhinav123
           </p>
         </div>
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>

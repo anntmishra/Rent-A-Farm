@@ -48,7 +48,7 @@ const SettingsPanel: React.FC<{ isOpen: boolean; onClose: () => void }> = ({ isO
       // In a real app, this would be an API call
       // For demo purposes, we'll use mock data
       const mockSettings: UserSettings = {
-        name: user?.name || 'Rajinder Singh',
+        name: user?.name || 'Demo User',
         email: user?.email || 'demo@example.com',
         phone: '+91 98765 43210',
         language: 'Hindi',

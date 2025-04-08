@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Sprout, Tractor, MapPin, Users, ArrowRight, CheckCircle } from 'lucide-react';
+import { Tractor, MapPin, Users, ArrowRight, CheckCircle, Home } from 'lucide-react';
 
 const HomePage: React.FC = () => {
   return (
@@ -10,8 +10,8 @@ const HomePage: React.FC = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center">
-              <Sprout className="w-8 h-8 text-green-600 mr-2" />
-              <h1 className="text-2xl font-bold text-green-800">FarmRental</h1>
+              <Home className="w-8 h-8 text-green-600 mr-2" />
+              <h1 className="text-2xl font-bold text-green-800">Rent A Farm</h1>
             </div>
             <div className="hidden md:flex space-x-8">
               <Link to="/equipment" className="text-gray-600 hover:text-green-700 font-medium">Equipment</Link>
@@ -81,7 +81,7 @@ const HomePage: React.FC = () => {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-green-800 mb-4">Our Features</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              FarmRental provides everything you need to manage agricultural land and equipment rentals efficiently.
+              Rent A Farm provides everything you need to manage agricultural land and equipment rentals efficiently.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -143,7 +143,7 @@ const HomePage: React.FC = () => {
           <div className="text-center mb-16">
             <h2 className="text-3xl font-bold text-green-800 mb-4">How It Works</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Getting started with FarmRental is simple. Follow these steps to begin renting land or equipment.
+              Getting started with Rent A Farm is simple. Follow these steps to begin renting land or equipment.
             </p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
@@ -208,7 +208,7 @@ const HomePage: React.FC = () => {
                 </div>
               </div>
               <p className="text-gray-600 mb-4">
-                "FarmRental helped me find the perfect piece of land for expanding my wheat farm. The process was smooth and the landowner was professional."
+                "Rent A Farm helped me find the perfect piece of land for expanding my wheat farm. The process was smooth and the landowner was professional."
               </p>
               <div className="flex text-yellow-400">
                 <CheckCircle className="w-5 h-5" />
@@ -250,7 +250,7 @@ const HomePage: React.FC = () => {
                 </div>
               </div>
               <p className="text-gray-600 mb-4">
-                "As a landowner, I've found reliable tenants through FarmRental. The platform's verification process gives me confidence in the renters."
+                "As a landowner, I've found reliable tenants through Rent A Farm. The platform's verification process gives me confidence in the renters."
               </p>
               <div className="flex text-yellow-400">
                 <CheckCircle className="w-5 h-5" />
@@ -269,7 +269,7 @@ const HomePage: React.FC = () => {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold text-white mb-6">Ready to Get Started?</h2>
           <p className="text-xl text-green-100 mb-8 max-w-3xl mx-auto">
-            Join thousands of farmers and landowners who are already using FarmRental to grow their agricultural businesses.
+            Join thousands of farmers and landowners who are already using Rent A Farm to grow their agricultural businesses.
           </p>
           <Link
             to="/register"
@@ -287,8 +287,8 @@ const HomePage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center mb-4">
-                <Sprout className="w-8 h-8 text-green-400 mr-2" />
-                <h3 className="text-xl font-bold">FarmRental</h3>
+                <Home className="w-8 h-8 text-green-400 mr-2" />
+                <h3 className="text-xl font-bold">Rent A Farm</h3>
               </div>
               <p className="text-green-200 mb-4">
                 Your one-stop platform for agricultural land and equipment rentals.
@@ -346,13 +346,13 @@ const HomePage: React.FC = () => {
                   <svg className="w-5 h-5 text-green-400 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
                   </svg>
-                  <span className="text-green-200">info@farmrental.com</span>
+                  <span className="text-green-200">info@rentafarm.com</span>
                 </li>
               </ul>
             </div>
           </div>
           <div className="border-t border-green-800 mt-8 pt-8 text-center text-green-300">
-            <p>&copy; {new Date().getFullYear()} FarmRental. All rights reserved.</p>
+            <p>&copy; {new Date().getFullYear()} Rent A Farm. All rights reserved.</p>
           </div>
         </div>
       </footer>

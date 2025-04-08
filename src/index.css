@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background: linear-gradient(135deg, #1a4d2e 0%, #2d6a4f 100%);
+    min-height: 100vh;
+    background-attachment: fixed;
+  }
+}
+
+.glass-pane {
+  @apply backdrop-blur-lg bg-white/10 border border-white/20 shadow-xl;
+}
